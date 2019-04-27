@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>赵泳智</title>
+  
+  <subtitle>这个世界会好的！：）</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://sombra002.github.io/"/>
+  <updated>2019-04-12T10:38:39.549Z</updated>
+  <id>https://sombra002.github.io/</id>
+  
+  <author>
+    <name>sombra002</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>欢迎访问！</title>
+    <link href="https://sombra002.github.io/2019/04/12/hello-world/"/>
+    <id>https://sombra002.github.io/2019/04/12/hello-world/</id>
+    <published>2019-04-11T18:38:54.678Z</published>
+    <updated>2019-04-12T10:38:39.549Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;首页&quot;&gt;&lt;a href=&quot;#首页&quot; class=&quot;headerlink&quot; title=&quot;首页&quot;&gt;&lt;/a&gt;首页&lt;/h2&gt;&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
