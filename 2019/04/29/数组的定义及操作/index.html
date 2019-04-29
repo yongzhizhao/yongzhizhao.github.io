@@ -98,17 +98,20 @@
 
   <meta name="description" content="数组概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。 数组既可以存储基本数据类型，也可以存储引用数据类型 定义格式： 123格式一：数据类型[] 数组名；格式二：数据类型 数组名[]; 举例： 123int[ ] a; //定义了一个int类型的数组a；int a[ ]; //定义了一个int类型的数组a； 案例： 1234567891011121314151617181920">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组的定义及操作">
+<meta property="og:title" content="数组的定义及操作1">
 <meta property="og:url" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/index.html">
 <meta property="og:site_name" content="赵泳智">
 <meta property="og:description" content="数组概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。 数组既可以存储基本数据类型，也可以存储引用数据类型 定义格式： 123格式一：数据类型[] 数组名；格式二：数据类型 数组名[]; 举例： 123int[ ] a; //定义了一个int类型的数组a；int a[ ]; //定义了一个int类型的数组a； 案例： 1234567891011121314151617181920">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作1/动态初始化数组的内存图.png">
-<meta property="og:updated_time" content="2019-04-29T09:01:30.963Z">
+<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/两个数组的内存图.png">
+<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/三个数组的内存图.png">
+<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/动态初始化数组的内存图.png">
+<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/数组的静态初始化的内存图解.bmp">
+<meta property="og:updated_time" content="2019-04-29T09:06:43.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组的定义及操作">
+<meta name="twitter:title" content="数组的定义及操作1">
 <meta name="twitter:description" content="数组概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。 数组既可以存储基本数据类型，也可以存储引用数据类型 定义格式： 123格式一：数据类型[] 数组名；格式二：数据类型 数组名[]; 举例： 123int[ ] a; //定义了一个int类型的数组a；int a[ ]; //定义了一个int类型的数组a； 案例： 1234567891011121314151617181920">
-<meta name="twitter:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作1/动态初始化数组的内存图.png">
+<meta name="twitter:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/两个数组的内存图.png">
 
 
 
@@ -128,7 +131,7 @@
   };
 </script>
 
-  <title>数组的定义及操作 | 赵泳智</title>
+  <title>数组的定义及操作1 | 赵泳智</title>
   
 
 
@@ -411,7 +414,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数组的定义及操作
+          <h1 class="post-title" itemprop="name headline">数组的定义及操作1
 
               
             
@@ -437,7 +440,7 @@
                 
               
 
-              <time title="创建时间：2019-04-29 16:57:36 / 修改时间：17:01:30" itemprop="dateCreated datePublished" datetime="2019-04-29T16:57:36+08:00">2019-04-29</time>
+              <time title="创建时间：2019-04-29 16:57:36 / 修改时间：17:06:43" itemprop="dateCreated datePublished" datetime="2019-04-29T16:57:36+08:00">2019-04-29</time>
             
 
             
@@ -525,7 +528,7 @@
 </li>
 <li><p>特点：</p>
 <pre><code>a: 每一个new出来的东西都会为其分配一个地制值。
-  b: 每一个变量都有一个默认的值
+b: 每一个变量都有一个默认的值
 </code></pre></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">byte，short，int，long --------&gt;0</span><br><span class="line">float，double ----------------------&gt;0.0</span><br><span class="line">char –----------------------------------&gt;‘\u0000’</span><br><span class="line">boolean ------------------------------&gt; false</span><br><span class="line">引用数据类型------------------------&gt; null</span><br></pre></td></tr></table></figure>
@@ -535,6 +538,8 @@
 <li>本地方法区:(和系统相关)</li>
 <li>寄存器:(cpu使用)</li>
 </ul>
+<h2 id="两个数组的内存图"><a href="#两个数组的内存图" class="headerlink" title="两个数组的内存图"></a>两个数组的内存图</h2><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\两个数组的内存图.png" alt="两个数组的内存图"></p>
+<h2 id="三个数组的内存图"><a href="#三个数组的内存图" class="headerlink" title="三个数组的内存图"></a>三个数组的内存图</h2><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\三个数组的内存图.png" alt="三个数组的内存图"></p>
 <h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p>Java中数组必须先初始化才能使用，即为数组中的元素分配内存空间并赋值</p>
 <p>初始化的分类：</p>
 <p>​    （1）动态初始化: 只指定长度，由系统给出初始化值</p>
@@ -544,8 +549,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = new 数据类型[数组长度];</span><br></pre></td></tr></table></figure>
 <p>举例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = new int[3]; //定义了一个int类型的数组arr，这个数组可以存放4个int类型的值。</span><br></pre></td></tr></table></figure>
-<h3 id="动态初始化的内存图解"><a href="#动态初始化的内存图解" class="headerlink" title="动态初始化的内存图解"></a>动态初始化的内存图解</h3><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作1\动态初始化数组的内存图.png" alt="动态初始化数组的内存图"></p>
-<h2 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a>静态初始化</h2>
+<h3 id="动态初始化的内存图解"><a href="#动态初始化的内存图解" class="headerlink" title="动态初始化的内存图解"></a>动态初始化的内存图解</h3><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\动态初始化数组的内存图.png" alt="动态初始化数组的内存图"></p>
+<h2 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a>静态初始化</h2><p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = new 数据类型[]&#123;元素1,元素2,…&#125;;</span><br></pre></td></tr></table></figure>
+<p>举例： i</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = new int[]&#123;1,2,3&#125;;</span><br></pre></td></tr></table></figure>
+<p>简化格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = &#123;元素1,元素2,…&#125;;</span><br></pre></td></tr></table></figure>
+<p>举例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = &#123;1,2,3&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="静态初始化内存图"><a href="#静态初始化内存图" class="headerlink" title="静态初始化内存图"></a>静态初始化内存图</h3><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\数组的静态初始化的内存图解.bmp" alt="数组的静态初始化的内存图解"></p>
+
       
     </div>
 
@@ -608,8 +622,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/29/数组的定义及操作1/" rel="next" title="数组的定义及操作1">
-                <i class="fa fa-chevron-left"></i> 数组的定义及操作1
+              <a href="/2019/04/05/键盘录入数据、流程控制语句/" rel="next" title="键盘录入数据、流程控制语句、方法、方法重载">
+                <i class="fa fa-chevron-left"></i> 键盘录入数据、流程控制语句、方法、方法重载
               </a>
             
           </div>
@@ -691,7 +705,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -848,7 +862,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中的内存分配以及栈和堆的区别"><span class="nav-number">2.</span> <span class="nav-text">Java中的内存分配以及栈和堆的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的初始化"><span class="nav-number">3.</span> <span class="nav-text">数组的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态初始化"><span class="nav-number">3.1.</span> <span class="nav-text">动态初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态初始化的内存图解"><span class="nav-number">3.1.1.</span> <span class="nav-text">动态初始化的内存图解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态初始化"><span class="nav-number">3.2.</span> <span class="nav-text">静态初始化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中的内存分配以及栈和堆的区别"><span class="nav-number">2.</span> <span class="nav-text">Java中的内存分配以及栈和堆的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个数组的内存图"><span class="nav-number">2.1.</span> <span class="nav-text">两个数组的内存图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个数组的内存图"><span class="nav-number">2.2.</span> <span class="nav-text">三个数组的内存图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的初始化"><span class="nav-number">3.</span> <span class="nav-text">数组的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态初始化"><span class="nav-number">3.1.</span> <span class="nav-text">动态初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态初始化的内存图解"><span class="nav-number">3.1.1.</span> <span class="nav-text">动态初始化的内存图解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态初始化"><span class="nav-number">3.2.</span> <span class="nav-text">静态初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态初始化内存图"><span class="nav-number">3.2.1.</span> <span class="nav-text">静态初始化内存图</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
