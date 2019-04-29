@@ -96,22 +96,18 @@
 
 
 
-  <meta name="description" content="数组概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。 数组既可以存储基本数据类型，也可以存储引用数据类型 定义格式： 123格式一：数据类型[] 数组名；格式二：数据类型 数组名[]; 举例： 123int[ ] a; //定义了一个int类型的数组a；int a[ ]; //定义了一个int类型的数组a； 案例： 1234567891011121314151617181920">
+  <meta name="description" content="面向对象概述 面向过程思想概述一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，完成我们的需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。那么什么是面向过程开发呢? 面向过程开发，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能方法相互调用，完成需求。代表语言：C语言  面向对象思">
+<meta name="keywords" content="JavaSE,面向对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组的定义及操作">
-<meta property="og:url" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/index.html">
+<meta property="og:title" content="面向对象【一】（类、成员变量、局部变量、匿名对象、封装、private关键字）">
+<meta property="og:url" content="https://sombra002.github.io/2019/04/14/面向对象【一】（类、成员变量、局部变量、匿名对象、封装）/index.html">
 <meta property="og:site_name" content="赵泳智">
-<meta property="og:description" content="数组概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。 数组既可以存储基本数据类型，也可以存储引用数据类型 定义格式： 123格式一：数据类型[] 数组名；格式二：数据类型 数组名[]; 举例： 123int[ ] a; //定义了一个int类型的数组a；int a[ ]; //定义了一个int类型的数组a； 案例： 1234567891011121314151617181920">
+<meta property="og:description" content="面向对象概述 面向过程思想概述一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，完成我们的需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。那么什么是面向过程开发呢? 面向过程开发，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能方法相互调用，完成需求。代表语言：C语言  面向对象思">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/两个数组的内存图.png">
-<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/三个数组的内存图.png">
-<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/动态初始化数组的内存图.png">
-<meta property="og:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/数组的静态初始化的内存图解.bmp">
-<meta property="og:updated_time" content="2019-04-29T09:12:17.325Z">
+<meta property="og:updated_time" content="2019-04-29T10:11:33.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组的定义及操作">
-<meta name="twitter:description" content="数组概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。 数组既可以存储基本数据类型，也可以存储引用数据类型 定义格式： 123格式一：数据类型[] 数组名；格式二：数据类型 数组名[]; 举例： 123int[ ] a; //定义了一个int类型的数组a；int a[ ]; //定义了一个int类型的数组a； 案例： 1234567891011121314151617181920">
-<meta name="twitter:image" content="https://sombra002.github.io/2019/04/29/数组的定义及操作/D:/Hexo/blog/zhaoBlog/source/_posts/数组的定义及操作/两个数组的内存图.png">
+<meta name="twitter:title" content="面向对象【一】（类、成员变量、局部变量、匿名对象、封装、private关键字）">
+<meta name="twitter:description" content="面向对象概述 面向过程思想概述一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，完成我们的需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。那么什么是面向过程开发呢? 面向过程开发，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能方法相互调用，完成需求。代表语言：C语言  面向对象思">
 
 
 
@@ -121,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://sombra002.github.io/2019/04/29/数组的定义及操作/">
+  <link rel="canonical" href="https://sombra002.github.io/2019/04/14/面向对象【一】（类、成员变量、局部变量、匿名对象、封装）/">
 
 
 
@@ -131,7 +127,7 @@
   };
 </script>
 
-  <title>数组的定义及操作 | 赵泳智</title>
+  <title>面向对象【一】（类、成员变量、局部变量、匿名对象、封装、private关键字） | 赵泳智</title>
   
 
 
@@ -397,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sombra002.github.io/2019/04/29/数组的定义及操作/">
+    <link itemprop="mainEntityOfPage" href="https://sombra002.github.io/2019/04/14/面向对象【一】（类、成员变量、局部变量、匿名对象、封装）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="赵泳智">
@@ -414,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数组的定义及操作
+          <h1 class="post-title" itemprop="name headline">面向对象【一】（类、成员变量、局部变量、匿名对象、封装、private关键字）
 
               
             
@@ -440,12 +436,24 @@
                 
               
 
-              <time title="创建时间：2019-04-29 16:57:36 / 修改时间：17:12:17" itemprop="dateCreated datePublished" datetime="2019-04-29T16:57:36+08:00">2019-04-29</time>
+              <time title="创建时间：2019-04-14 17:57:44" itemprop="dateCreated datePublished" datetime="2019-04-14T17:57:44+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-29 18:11:33" itemprop="dateModified" datetime="2019-04-29T18:11:33+08:00">2019-04-29</time>
               
             
           </span>
@@ -481,8 +489,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/29/数组的定义及操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/29/数组的定义及操作/" itemprop="commentCount"></span>
+                <a href="/2019/04/14/面向对象【一】（类、成员变量、局部变量、匿名对象、封装）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/14/面向对象【一】（类、成员变量、局部变量、匿名对象、封装）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -510,55 +518,83 @@
       
 
       
-        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>概念：数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。</p>
-<p>数组既可以存储基本数据类型，也可以存储引用数据类型</p>
-<p>定义格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">格式一：数据类型[] 数组名；</span><br><span class="line"></span><br><span class="line">格式二：数据类型 数组名[];</span><br></pre></td></tr></table></figure>
-<p>举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int[ ] a; //定义了一个int类型的数组a；</span><br><span class="line"></span><br><span class="line">int a[ ]; //定义了一个int类型的数组a；</span><br></pre></td></tr></table></figure>
-<p>案例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //数组：你可以一个容器，他用来存储一组相同类型的数据。</span><br><span class="line">        //数组的定义语法</span><br><span class="line">        //方式1：动态的定义方式，由我们规定数组的长度，由系统赋默认值</span><br><span class="line">        //创建一个int类型的数组</span><br><span class="line">        //当我们创建好了数组后，系统会给分配索引（角标）从0开始</span><br><span class="line">        int[] arr=new int[10];</span><br><span class="line">        //往数组中放入数据 通过数组的索引往里面存数据</span><br><span class="line">        arr[0]=10;</span><br><span class="line">        arr[1]=20;</span><br><span class="line">        arr[2]=30;</span><br><span class="line">        //取数组中的元素</span><br><span class="line">        int num=arr[2];</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        System.out.println(arr[4]);</span><br><span class="line">        System.out.println(arr[5]);</span><br><span class="line"></span><br><span class="line">        //语法2</span><br><span class="line">        boolean bs[]=new boolean[2];</span><br><span class="line">        bs[0]=true;</span><br><span class="line">        System.out.println(bs[0]);</span><br><span class="line">        System.out.println(bs[1]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>数组可以存储基本数据类型，也可以存储引用数据类型。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] arr1 = new int[3];</span><br><span class="line">        arr1[0] = 10;</span><br><span class="line">        arr1[1] = 20;</span><br><span class="line">        System.out.println(arr1[1]);</span><br><span class="line"></span><br><span class="line">        int[] arr2 = new int[3];</span><br><span class="line">        arr2[0] = 100;</span><br><span class="line">        arr2[1] = 200;</span><br><span class="line">        System.out.println(arr2[1]);</span><br><span class="line"></span><br><span class="line">        System.out.println(arr1);</span><br><span class="line">        System.out.println(arr2);</span><br><span class="line"></span><br><span class="line">        //数据类型：基本数据类型和引用数据类型</span><br><span class="line">        //引用数据类型，你使用new关键字初始化的数据 数组 类 接口 枚举</span><br></pre></td></tr></table></figure>
-<h1 id="Java中的内存分配以及栈和堆的区别"><a href="#Java中的内存分配以及栈和堆的区别" class="headerlink" title="Java中的内存分配以及栈和堆的区别"></a>Java中的内存分配以及栈和堆的区别</h1><ul>
-<li><p>栈: 存放的是局部变量</p>
-<p>局部变量：在方法定义中或者方法声明上的变量都是局部变量。</p>
+        <h1 id="面向对象概述"><a href="#面向对象概述" class="headerlink" title="面向对象概述"></a>面向对象概述</h1><ul>
+<li><p>面向过程思想概述<br>一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，完成我们的需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。<br>那么什么是面向过程开发呢? 面向过程开发，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能方法相互调用，完成需求。代表语言：C语言</p>
 </li>
-<li><p>堆: 存放的是所有new出来的东西</p>
+<li><p>面向对象思想概述<br>当需求单一，或者简单时，我们一步一步去操作没问题，并且效率也挺高。可随着需求的更改，功能的增多，发现需要面对每一个步骤很麻烦了。这时就开始思索，能不能把这些步骤和功能在进行封装，封装时根据不同的功能，进行不同的封装，功能类似的封装在一起。这样结构就清晰了很多。用的时候，找到对应的类就可以了。这就是面向对象的思想。</p>
 </li>
-<li><p>特点：</p>
-<pre><code>a: 每一个new出来的东西都会为其分配一个地制值。
-  b: 每一个变量都有一个默认的值
-</code></pre></li>
+<li><p>面向对象思想特点<br>a:是一种更符合我们思想习惯的思想<br>b:可以将复杂的事情简单化<br>c:将我们从执行者变成了指挥者角色发生了转换</p>
+</li>
+<li><p>举例</p>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">byte，short，int，long --------&gt;0</span><br><span class="line">float，double ----------------------&gt;0.0</span><br><span class="line">char –----------------------------------&gt;‘\u0000’</span><br><span class="line">boolean ------------------------------&gt; false</span><br><span class="line">引用数据类型------------------------&gt; null</span><br></pre></td></tr></table></figure>
-<p>使用完毕就变成了垃圾，等待垃圾回收器对其回收</p>
+<pre><code>洗衣服：换下脏衣服—找盆接水—泡一泡—手搓-----漂清----晾干
+面向对象：找个对象（洗衣服）、全自动洗衣机（一键洗衣（调用方法））
+</code></pre><ul>
+<li>面向对象特征</li>
+</ul>
+<pre><code>封装(encapsulation)
+继承(inheritance)
+多态(polymorphism)
+</code></pre><ul>
+<li><p>面向对象开发</p>
+<p>​    就是不断的创建对象，使用对象，指挥对象做事情</p>
+</li>
+</ul>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>类就是一组相关属性和功能的集合，对象是该类事物的实例化，例如：学生的实例化之一为班长，班长就是学生类的一个对象。</p>
 <ul>
-<li>方法区</li>
-<li>本地方法区:(和系统相关)</li>
-<li>寄存器:(cpu使用)</li>
+<li><p>成员变量和成员方法</p>
+<p>定义类其实就是定义类的成员(成员变量和成员方法)</p>
+</li>
+<li><p>类的使用<br>A:文件名问题<br>在一个java文件中写两个类：一个基本的类，一个测试类。<br>建议：文件名称和测试类名称一致。<br>B:如何使用呢?<br>创建对象使用。<br>C:如何创建对象呢?<br>格式：类名 对象名 = new 类名();<br>D:如何使用成员变量呢?<br>格式：对象名.变量名<br>E:如何使用成员方法呢?<br>格式：对象名.方法名(…)</p>
+</li>
+<li><p>案例：</p>
+</li>
 </ul>
-<h2 id="两个数组的内存图"><a href="#两个数组的内存图" class="headerlink" title="两个数组的内存图"></a>两个数组的内存图</h2><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\两个数组的内存图.png" alt="两个数组的内存图"></p>
-<h2 id="三个数组的内存图"><a href="#三个数组的内存图" class="headerlink" title="三个数组的内存图"></a>三个数组的内存图</h2><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\三个数组的内存图.png" alt="三个数组的内存图"></p>
-<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p>Java中数组必须先初始化才能使用，即为数组中的元素分配内存空间并赋值</p>
-<p>初始化的分类：</p>
-<p>​    （1）动态初始化: 只指定长度，由系统给出初始化值</p>
-<p>​    （2）静态初始化: 给出初始化值，由系统决定长度</p>
-<p>​    注意：两种初始化方式只能使用一种，不能动静结合</p>
-<h2 id="动态初始化"><a href="#动态初始化" class="headerlink" title="动态初始化"></a>动态初始化</h2><p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = new 数据类型[数组长度];</span><br></pre></td></tr></table></figure>
-<p>举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = new int[3]; //定义了一个int类型的数组arr，这个数组可以存放4个int类型的值。</span><br></pre></td></tr></table></figure>
-<h3 id="动态初始化的内存图解"><a href="#动态初始化的内存图解" class="headerlink" title="动态初始化的内存图解"></a>动态初始化的内存图解</h3><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\动态初始化数组的内存图.png" alt="动态初始化数组的内存图"></p>
-<h2 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a>静态初始化</h2><p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = new 数据类型[]&#123;元素1,元素2,…&#125;;</span><br></pre></td></tr></table></figure>
-<p>举例： i</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = new int[]&#123;1,2,3&#125;;</span><br></pre></td></tr></table></figure>
-<p>简化格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = &#123;元素1,元素2,…&#125;;</span><br></pre></td></tr></table></figure>
-<p>举例： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = &#123;1,2,3&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="静态初始化内存图"><a href="#静态初始化内存图" class="headerlink" title="静态初始化内存图"></a>静态初始化内存图</h3><p><img src="/2019/04/29/数组的定义及操作/D:/Hexo\blog\zhaoBlog\source\_posts\数组的定义及操作\数组的静态初始化的内存图解.bmp" alt="数组的静态初始化的内存图解"></p>
+<p>​       定义一个手机类并使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//定义类</span><br><span class="line">public class Phone &#123;</span><br><span class="line">    //成员变量：定义在类中，方法外</span><br><span class="line">    String name = &quot;小米&quot;;</span><br><span class="line">    double price = 1000;</span><br><span class="line">    String color = &quot;白色&quot;;</span><br><span class="line"></span><br><span class="line">    //成员方法</span><br><span class="line">    public void call(String name) &#123;</span><br><span class="line">        System.out.println(&quot;给&quot; + name + &quot;打电话&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void sendMsg(String name, String content) &#123;</span><br><span class="line">        System.out.println(&quot;给&quot; + name + &quot;发短信，内容是&quot; + content);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//使用该类</span><br><span class="line">public class TestPhone &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">     //类是一个抽象的概念，你无法直接使用，要使用类中的属性功能，必须创建该类对象</span><br><span class="line">        Phone phone=new Phone();</span><br><span class="line">        //获取属性 对象名.属性名</span><br><span class="line">        String name=phone.name;</span><br><span class="line">        double price = phone.price;</span><br><span class="line">        String color = phone.color;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">        System.out.println(price);</span><br><span class="line">        System.out.println(color);</span><br><span class="line">        //使用功能：对象名.方法名()</span><br><span class="line"></span><br><span class="line">        phone.call(&quot;张三&quot;);</span><br><span class="line">        phone.sendMsg(&quot;张三&quot;,&quot;生日快乐&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h1><ul>
+<li><p>在类中的位置不同</p>
+<p>成员变量：定义在类中方法外</p>
+<p>局部变量：定义在方法中或方法声明上（形参）</p>
+</li>
+<li><p>在内存位置不同</p>
+<p>成员变量：在堆内存中</p>
+<p>局部变量：在栈内存中</p>
+</li>
+<li><p>生命周期不同</p>
+<p>成员变量：随对象的创建而存在，随对象的消失而消失</p>
+<p>局部变量：随方法的调用而存在，随方法的弹栈而消失</p>
+</li>
+<li><p>初始化值不同</p>
+<p>成员变量：有默认初始化值</p>
+<p>局部变量：无默认初始化值，必须赋值才能使用</p>
+</li>
+<li><p>注意事项：局部变量名称可以和成员变量名称一样，在方法中使用的时候，采用的是就近原则</p>
+</li>
+</ul>
+<h1 id="方法的形式参数是类名的时候如何调用"><a href="#方法的形式参数是类名的时候如何调用" class="headerlink" title="方法的形式参数是类名的时候如何调用"></a>方法的形式参数是类名的时候如何调用</h1><ul>
+<li>Java中参数传递问题<br>形式参数<br>基本类型（四类八种）：形式参数的改变不影响实际参数<br>引用类型：形式参数的改变直接影响实际参数</li>
+<li>方法的参数是类名<br>如果一个方法的形式参数是一个类类型(引用类型)，这里其实需要的是该类的对象。</li>
+</ul>
+<h1 id="匿名对象的概述和应用"><a href="#匿名对象的概述和应用" class="headerlink" title="匿名对象的概述和应用"></a>匿名对象的概述和应用</h1><ul>
+<li>匿名对象就是没有名字的对象</li>
+<li>应用场景：对象的方法仅使用一次，也可作实际参数传递</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        //匿名对象调用方法</span><br><span class="line">        new Teacher().show(); //每new一次就是一个新的对象</span><br><span class="line">        new Teacher().show2();</span><br><span class="line">        new Teacher().show();</span><br><span class="line">        new Teacher().show();</span><br><span class="line">        //匿名对象调用成员变量</span><br><span class="line">        int num = new Teacher().num;</span><br><span class="line">        System.out.println(num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Cat cat = new Cat();</span><br><span class="line">        //如果你以后看到一个方法的形参，要一个 类 类型，那么你就传一个该类对象</span><br><span class="line">        cat.show(cat, 19);</span><br><span class="line">        System.out.println(cat.num);</span><br><span class="line">        System.out.println(&quot;---------------------&quot;);</span><br><span class="line">        //匿名对象作为参数传递</span><br><span class="line">        //匿名对象可以作为参数传递</span><br><span class="line">        cat.show(new Cat(), 20);</span><br><span class="line">        System.out.println(cat.num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Cat &#123;</span><br><span class="line">    int num = 100;</span><br><span class="line"></span><br><span class="line">    public void show(Cat cat, int num) &#123;</span><br><span class="line">        cat.num = num;</span><br><span class="line">        System.out.println(cat.num);//</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">19</span><br><span class="line">19</span><br><span class="line">---------------------</span><br><span class="line">20</span><br><span class="line">19</span><br></pre></td></tr></table></figure>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><ul>
+<li>封装是指隐藏对象的属性和实现细节，仅对外提供公共访问方式</li>
+<li>好处<ul>
+<li>隐藏实现细节，提供公共的访问方式</li>
+<li>提高了代码的复用性</li>
+<li>提高安全性</li>
+</ul>
+</li>
+<li>原则：将不需要对外提供的内容都隐藏起来，提供公共方法对其访问。</li>
+</ul>
+<h1 id="private关键字"><a href="#private关键字" class="headerlink" title="private关键字"></a>private关键字</h1><p>private是一个权限修饰符，可以修饰成员变量和成员方法，被其修饰只能在本类中被访问,提供get和set方法以供外界访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public Student() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Student(String name, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    public void sleep() &#123;</span><br><span class="line">        System.out.println(&quot;睡觉&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void eat() &#123;</span><br><span class="line">        System.out.println(&quot;吃饭&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TestStudent &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Student student = new Student();</span><br><span class="line">        student.setName(&quot;张三&quot;);</span><br><span class="line">        student.setAge(20);</span><br><span class="line">        String name = student.getName();</span><br><span class="line">        int age = student.getAge();</span><br><span class="line">        System.out.println(&quot;姓名：&quot; + name + &quot;=== 年龄&quot; + age);</span><br><span class="line">        student.eat();</span><br><span class="line">        student.sleep();</span><br><span class="line">        System.out.println(&quot;-------------------&quot;);</span><br><span class="line">        Student student1 = new Student();</span><br><span class="line">        student1.setName(&quot;李四&quot;);</span><br><span class="line">        student1.setAge(24);</span><br><span class="line">        String name1 = student1.getName();</span><br><span class="line">        int age1 = student1.getAge();</span><br><span class="line">        System.out.println(&quot;姓名：&quot; + name1 + &quot;=== 年龄&quot; + age1);</span><br><span class="line">        student1.eat();</span><br><span class="line">        student1.sleep();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出：</span><br><span class="line">姓名：张三=== 年龄20</span><br><span class="line">吃饭</span><br><span class="line">睡觉</span><br><span class="line">-------------------</span><br><span class="line">姓名：李四=== 年龄24</span><br><span class="line">吃饭</span><br><span class="line">睡觉</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -613,6 +649,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaSE/" rel="tag"><i class="fa fa-tag"></i> JavaSE</a>
+          
+            <a href="/tags/面向对象/" rel="tag"><i class="fa fa-tag"></i> 面向对象</a>
+          
+        </div>
+      
 
       
       
@@ -622,8 +666,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/键盘录入数据、流程控制语句/" rel="next" title="键盘录入数据、流程控制语句、方法、方法重载">
-                <i class="fa fa-chevron-left"></i> 键盘录入数据、流程控制语句、方法、方法重载
+              <a href="/2019/04/08/数组的定义及操作、递归/" rel="next" title="数组的定义及操作、递归">
+                <i class="fa fa-chevron-left"></i> 数组的定义及操作、递归
               </a>
             
           </div>
@@ -631,6 +675,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/14/面向对象【二】(this关键字、构造方法、static关键字、静态变量和成员变量的区别、Math类的随机数功能)/" rel="prev" title="面向对象【二】(this关键字、构造方法、static关键字、静态变量和成员变量的区别、Math类的随机数功能)">
+                面向对象【二】(this关键字、构造方法、static关键字、静态变量和成员变量的区别、Math类的随机数功能) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -705,7 +753,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -730,6 +778,25 @@
                 </div>
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -862,7 +929,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中的内存分配以及栈和堆的区别"><span class="nav-number">2.</span> <span class="nav-text">Java中的内存分配以及栈和堆的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个数组的内存图"><span class="nav-number">2.1.</span> <span class="nav-text">两个数组的内存图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个数组的内存图"><span class="nav-number">2.2.</span> <span class="nav-text">三个数组的内存图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的初始化"><span class="nav-number">3.</span> <span class="nav-text">数组的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态初始化"><span class="nav-number">3.1.</span> <span class="nav-text">动态初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态初始化的内存图解"><span class="nav-number">3.1.1.</span> <span class="nav-text">动态初始化的内存图解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态初始化"><span class="nav-number">3.2.</span> <span class="nav-text">静态初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态初始化内存图"><span class="nav-number">3.2.1.</span> <span class="nav-text">静态初始化内存图</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象概述"><span class="nav-number">1.</span> <span class="nav-text">面向对象概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成员变量和局部变量的区别"><span class="nav-number">3.</span> <span class="nav-text">成员变量和局部变量的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的形式参数是类名的时候如何调用"><span class="nav-number">4.</span> <span class="nav-text">方法的形式参数是类名的时候如何调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名对象的概述和应用"><span class="nav-number">5.</span> <span class="nav-text">匿名对象的概述和应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封装"><span class="nav-number">6.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#private关键字"><span class="nav-number">7.</span> <span class="nav-text">private关键字</span></a></li></ol></div>
             
 
           </div>

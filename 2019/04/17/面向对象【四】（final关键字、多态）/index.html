@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="技术博客、人生感悟、随便写写。 大家笑一笑就好！">
+  <meta name="description" content="final关键字 为什么会有final： ​    由于继承中有一个方法重写的现象,而有时候我们不想让子类去重写父类的方法.这对这种情况java就给我们提供了一个关键字: final  final概述： final关键字是最终的意思，可以修饰类，变量，成员方法   final关键字修饰类,方法以及变量的特点final修饰特点：  修饰类:    被修饰类不能被继承 修饰方法:    被修饰的方法不">
+<meta name="keywords" content="JavaSE,面向对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎访问我的博客！">
-<meta property="og:url" content="https://sombra002.github.io/2019/03/01/hello-world/index.html">
+<meta property="og:title" content="面向对象【四】（final关键字、多态）">
+<meta property="og:url" content="https://sombra002.github.io/2019/04/17/面向对象【四】（final关键字、多态）/index.html">
 <meta property="og:site_name" content="赵泳智">
-<meta property="og:description" content="技术博客、人生感悟、随便写写。 大家笑一笑就好！">
+<meta property="og:description" content="final关键字 为什么会有final： ​    由于继承中有一个方法重写的现象,而有时候我们不想让子类去重写父类的方法.这对这种情况java就给我们提供了一个关键字: final  final概述： final关键字是最终的意思，可以修饰类，变量，成员方法   final关键字修饰类,方法以及变量的特点final修饰特点：  修饰类:    被修饰类不能被继承 修饰方法:    被修饰的方法不">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T05:21:44.306Z">
+<meta property="og:updated_time" content="2019-04-29T12:17:52.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎访问我的博客！">
-<meta name="twitter:description" content="技术博客、人生感悟、随便写写。 大家笑一笑就好！">
+<meta name="twitter:title" content="面向对象【四】（final关键字、多态）">
+<meta name="twitter:description" content="final关键字 为什么会有final： ​    由于继承中有一个方法重写的现象,而有时候我们不想让子类去重写父类的方法.这对这种情况java就给我们提供了一个关键字: final  final概述： final关键字是最终的意思，可以修饰类，变量，成员方法   final关键字修饰类,方法以及变量的特点final修饰特点：  修饰类:    被修饰类不能被继承 修饰方法:    被修饰的方法不">
 
 
 
@@ -116,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://sombra002.github.io/2019/03/01/hello-world/">
+  <link rel="canonical" href="https://sombra002.github.io/2019/04/17/面向对象【四】（final关键字、多态）/">
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title>欢迎访问我的博客！ | 赵泳智</title>
+  <title>面向对象【四】（final关键字、多态） | 赵泳智</title>
   
 
 
@@ -392,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sombra002.github.io/2019/03/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://sombra002.github.io/2019/04/17/面向对象【四】（final关键字、多态）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="赵泳智">
@@ -409,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">欢迎访问我的博客！
+          <h1 class="post-title" itemprop="name headline">面向对象【四】（final关键字、多态）
 
               
             
@@ -435,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2019-03-01 12:25:38" itemprop="dateCreated datePublished" datetime="2019-03-01T12:25:38+08:00">2019-03-01</time>
+              <time title="创建时间：2019-04-17 19:43:47" itemprop="dateCreated datePublished" datetime="2019-04-17T19:43:47+08:00">2019-04-17</time>
             
 
             
@@ -452,11 +453,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-29 13:21:44" itemprop="dateModified" datetime="2019-04-29T13:21:44+08:00">2019-04-29</time>
+                <time title="修改时间：2019-04-29 20:17:52" itemprop="dateModified" datetime="2019-04-29T20:17:52+08:00">2019-04-29</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -470,8 +489,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/01/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/01/hello-world/" itemprop="commentCount"></span>
+                <a href="/2019/04/17/面向对象【四】（final关键字、多态）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/17/面向对象【四】（final关键字、多态）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -499,8 +518,93 @@
       
 
       
-        <p>技术博客、人生感悟、随便写写。</p>
-<p>大家笑一笑就好！</p>
+        <h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><ul>
+<li><p>为什么会有final：</p>
+<p>​    由于继承中有一个方法重写的现象,而有时候我们不想让子类去重写父类的方法.这对这种情况java就给我们提供了一个关键字: final</p>
+</li>
+<li><p>final概述：</p>
+<p>final关键字是最终的意思，可以修饰<strong>类</strong>，<strong>变量</strong>，<strong>成员方法</strong></p>
+</li>
+</ul>
+<h1 id="final关键字修饰类-方法以及变量的特点"><a href="#final关键字修饰类-方法以及变量的特点" class="headerlink" title="final关键字修饰类,方法以及变量的特点"></a>final关键字修饰类,方法以及变量的特点</h1><p>final修饰特点：</p>
+<ul>
+<li>修饰类:    被修饰类不能被继承</li>
+<li>修饰方法:    被修饰的方法不能被重写</li>
+<li>修饰变量:    被修饰的变量不能被重新赋值,因为这个量其实是一个常量</li>
+</ul>
+<p>代码示例：</p>
+<p>​    final修饰成员变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static final int A=10; //公共的静态常量</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //final 最终的，可以修饰类，变量，可以修饰成员方法</span><br><span class="line">        final int NUM=100; //自定义常量  常量的命名字母全部大写</span><br><span class="line">        System.out.println(A);</span><br><span class="line">        System.out.println(MyTest.A);</span><br><span class="line">        System.out.println(NUM);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">10</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
+<h2 id="final修饰类："><a href="#final修饰类：" class="headerlink" title="final修饰类："></a>final修饰类：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest&#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //final 修饰类，此类不能被继承</span><br><span class="line">        B b = new B();</span><br><span class="line">        b.show1();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">final class A&#123;</span><br><span class="line"></span><br><span class="line">    public void show1()&#123;</span><br><span class="line">        System.out.println(&quot;这是父类的成员方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A&#123;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(&quot;这是子类的成员方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码对类进行了final修饰，运行上述代码，会报错。</p>
+<p>B类无法成功继承A类</p>
+<h2 id="final修饰成员方法："><a href="#final修饰成员方法：" class="headerlink" title="final修饰成员方法："></a>final修饰成员方法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //final 修饰方法，此方法不能被重写,子类可以原封不动的继承下去用，就是不能重写</span><br><span class="line"></span><br><span class="line">        new Zi().test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Fu&#123;</span><br><span class="line"></span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(&quot;这是父类的show方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public final void test()&#123;</span><br><span class="line">        System.out.println(&quot;这是父类的final&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi extends Fu&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void test() &#123;</span><br><span class="line">        super.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上述代码可以看出，通过final关键字修饰了成员方法，执行上述代码会报错，test()无法覆盖。</p>
+<p>可知，被final修饰过的成员方法不能被子类重写。</p>
+<h1 id="final关键字修饰局部变量"><a href="#final关键字修饰局部变量" class="headerlink" title="final关键字修饰局部变量"></a>final关键字修饰局部变量</h1><ol>
+<li>基本类型，是值不能被改变</li>
+<li>引用类型，是地址值不能被改变</li>
+</ol>
+<h1 id="多态的概述及其代码体现"><a href="#多态的概述及其代码体现" class="headerlink" title="多态的概述及其代码体现"></a>多态的概述及其代码体现</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>某一个事物，在不同时刻表现出来的不同状态。</p>
+<p>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cat c=new Cat();</span><br><span class="line">Animal a=new Cat();</span><br></pre></td></tr></table></figure>
+<p>猫可以是猫的类型。猫 m = new 猫();<br>同时猫也是动物的一种，也可以把猫称为动物。动物 d = new 猫();</p>
+<h2 id="多态前提"><a href="#多态前提" class="headerlink" title="多态前提"></a>多态前提</h2><ul>
+<li>要有继承关系。</li>
+<li>要有方法重写。 其实没有也是可以的，但是如果没有这个就没有意义。</li>
+<li>要有父类引用指向子类对象。<code>父 f = new 子();</code></li>
+</ul>
+<p>代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Animal an=new Cat();</span><br><span class="line">        an.sleep();</span><br><span class="line">        an.eat();</span><br><span class="line">        an.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Animal&#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;吃饭&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void sleep() &#123;</span><br><span class="line">        System.out.println(&quot;睡觉&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void show() &#123;</span><br><span class="line">        System.out.println(&quot;父类中的show方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cat extends Animal&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void eat() &#123;</span><br><span class="line">        System.out.println(&quot;猫爱吃鱼&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void sleep() &#123;</span><br><span class="line">        System.out.println(&quot;猫爱白天睡觉&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码就是对多态的举例，运行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">猫爱白天睡觉</span><br><span class="line">猫爱吃鱼</span><br><span class="line">父类中的show方法</span><br></pre></td></tr></table></figure>
+<h1 id="多态中的成员访问特点"><a href="#多态中的成员访问特点" class="headerlink" title="多态中的成员访问特点"></a>多态中的成员访问特点</h1><p>多态中的成员访问特点</p>
+<ul>
+<li>成员变量，编译看左边，运行看左边。</li>
+<li>构造方法，创建子类对象的时候，会访问父类的构造方法，对父类的数据进行初始化。</li>
+<li>成员方法，编译看左边，运行看右边。</li>
+<li>静态方法，编译看左边，运行看左边(静态和类相关，算不上重写，所以，访问还是左边的)。</li>
+</ul>
+<h1 id="多态的好处"><a href="#多态的好处" class="headerlink" title="多态的好处"></a>多态的好处</h1><p>多态的好处</p>
+<ul>
+<li>提高了代码的维护性(继承保证)</li>
+<li>提高了代码的扩展性(由多态保证)</li>
+</ul>
+<h1 id="多态的弊端"><a href="#多态的弊端" class="headerlink" title="多态的弊端"></a>多态的弊端</h1><p>通过多态的弊端引出问题：</p>
+<p>不能使用子类特有的功能</p>
+<ul>
+<li><p>解决方法：</p>
+<p>把父类的引用强制转换为子类的引用。(向下转型)</p>
+</li>
+</ul>
+<h1 id="向上转型和向下转型"><a href="#向上转型和向下转型" class="headerlink" title="向上转型和向下转型"></a>向上转型和向下转型</h1><h2 id="1-向上转型（upcasting）"><a href="#1-向上转型（upcasting）" class="headerlink" title="1.向上转型（upcasting）"></a>1.向上转型（upcasting）</h2><p>​    子—-&gt;父    自动类型提升</p>
+<h2 id="2-向下转型（downcasting）"><a href="#2-向下转型（downcasting）" class="headerlink" title="2.向下转型（downcasting）"></a>2.向下转型（downcasting）</h2><p>​    父—-&gt;子   强制类型转换</p>
+<ul>
+<li>注意：无论是向上转型还是向下转型，两个类之间必须要有继承关系</li>
+</ul>
+<p>代码示例：</p>
+<p>父类： 动物类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Animal &#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;动物在吃！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类1：猫类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Cat extends Animal&#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;猫吃鱼！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public void move()&#123;</span><br><span class="line">    System.out.println(&quot;猫走猫步&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类2：狗类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Dog extends Animal &#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;狗啃骨头&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试类1：没转型，正常调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Animal a1 = new Animal();</span><br><span class="line">        a1.eat();</span><br><span class="line"></span><br><span class="line">        Cat c1 = new Cat();</span><br><span class="line">        c1.eat();</span><br><span class="line">        </span><br><span class="line">        Dog d1 = new Dog();</span><br><span class="line">        d1.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试类2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class Test2 &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        </span><br><span class="line">        //向上转型又被称作：自动类型转换</span><br><span class="line">        </span><br><span class="line">        //向上转型，子类转为父类</span><br><span class="line">        //父类型的引用指向子类型对象</span><br><span class="line">        //程序分两个阶段：编译阶段，运行阶段</span><br><span class="line">        //程序编译阶段只知道a1是一个Animal类</span><br><span class="line">        //程序运行的时候堆中的实际对象是Cat类型</span><br><span class="line">        Animal a1 = new Cat();</span><br><span class="line"></span><br><span class="line">        //程序在编译阶段a1被看做Animal类型</span><br><span class="line">        //所以程序在编一阶段a1引用绑定的是Animal类中的eat方法（静态绑定）</span><br><span class="line">        a1.eat();  //猫吃鱼！</span><br><span class="line">        </span><br><span class="line">        ===========================================================</span><br><span class="line">         //向下转型，强制类型转换</span><br><span class="line">         Animal a2 = new Cat();</span><br><span class="line">        //要执行猫类的特有方法,怎么做？</span><br><span class="line">        Cat c1 = (Cat) a2;</span><br><span class="line">        c1.move(); </span><br><span class="line">        ===========================================================</span><br><span class="line">        //抛出异常</span><br><span class="line">        //做强制类型转换是有风险的</span><br><span class="line">        Animal a3 = new Dog();  //向上转型，底层是Dog类</span><br><span class="line">        Cat c2 = (Cat) a3;   //所以就不能强转成Cat类，因为之间没继承</span><br><span class="line">         //报错：ClassCastException</span><br><span class="line">         </span><br><span class="line">         //为了避免ClassCastException，引入了instanceof</span><br><span class="line">         /*</span><br><span class="line">         * 用法：</span><br><span class="line">             1.instanceof作为运算符返回的结果是boolean类型</span><br><span class="line">             2.(引用 instanceof 类型)-----&gt;true/false</span><br><span class="line">             </span><br><span class="line">             例如：(a instanceof Cat) 如果是true，则a指向堆中的对象是Cat类型</span><br><span class="line">         ============================================================</span><br><span class="line">         Animal a3 = new Dog();</span><br><span class="line">         if(a3 instanceof Cat)&#123;</span><br><span class="line">             Cat c2 =(Cat) a3;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="静态绑定和动态绑定"><a href="#静态绑定和动态绑定" class="headerlink" title="静态绑定和动态绑定"></a>静态绑定和动态绑定</h1><p>静态绑定：编译阶段a1引用绑定的是Animal类中的eat()方法。</p>
+<p>动态绑定：但是运行阶段，堆中的对象实际上是Cat类型，而Cat已经重写了eat方法，所以程序在运行阶段对象的绑定的方法时Cat中的eat方法</p>
+<h1 id="instance可以判断类型"><a href="#instance可以判断类型" class="headerlink" title="instance可以判断类型"></a>instance可以判断类型</h1><ul>
+<li><p>用法：</p>
+<pre><code>1.instanceof作为运算符返回的结果是boolean类型
+2.(引用 instanceof 类型)-----&gt;true/false
+
+例如：(a instanceof Cat) 如果是true，则a指向堆中的对象是Cat类型
+</code></pre></li>
+</ul>
 
       
     </div>
@@ -555,6 +659,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaSE/" rel="tag"><i class="fa fa-tag"></i> JavaSE</a>
+          
+            <a href="/tags/面向对象/" rel="tag"><i class="fa fa-tag"></i> 面向对象</a>
+          
+        </div>
+      
 
       
       
@@ -564,14 +676,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/16/面向对象【三】(代码块、继承、构造方法、方法重写)/" rel="next" title="面向对象【三】(代码块、继承、构造方法、方法重写)">
+                <i class="fa fa-chevron-left"></i> 面向对象【三】(代码块、继承、构造方法、方法重写)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/Java简介、注释、、常见DOS命令/" rel="prev" title="Java简介、注释、、常见DOS命令">
-                Java简介、注释、、常见DOS命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/18/面向对象【五】(抽象类、接口)/" rel="prev" title="面向对象【五】(抽象类、接口)">
+                面向对象【五】(抽象类、接口) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,8 +736,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -803,6 +928,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#final关键字"><span class="nav-number">1.</span> <span class="nav-text">final关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final关键字修饰类-方法以及变量的特点"><span class="nav-number">2.</span> <span class="nav-text">final关键字修饰类,方法以及变量的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#final修饰类："><span class="nav-number">2.1.</span> <span class="nav-text">final修饰类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final修饰成员方法："><span class="nav-number">2.2.</span> <span class="nav-text">final修饰成员方法：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final关键字修饰局部变量"><span class="nav-number">3.</span> <span class="nav-text">final关键字修饰局部变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态的概述及其代码体现"><span class="nav-number">4.</span> <span class="nav-text">多态的概述及其代码体现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">4.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态前提"><span class="nav-number">4.2.</span> <span class="nav-text">多态前提</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态中的成员访问特点"><span class="nav-number">5.</span> <span class="nav-text">多态中的成员访问特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态的好处"><span class="nav-number">6.</span> <span class="nav-text">多态的好处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态的弊端"><span class="nav-number">7.</span> <span class="nav-text">多态的弊端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#向上转型和向下转型"><span class="nav-number">8.</span> <span class="nav-text">向上转型和向下转型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-向上转型（upcasting）"><span class="nav-number">8.1.</span> <span class="nav-text">1.向上转型（upcasting）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-向下转型（downcasting）"><span class="nav-number">8.2.</span> <span class="nav-text">2.向下转型（downcasting）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态绑定和动态绑定"><span class="nav-number">9.</span> <span class="nav-text">静态绑定和动态绑定</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#instance可以判断类型"><span class="nav-number">10.</span> <span class="nav-text">instance可以判断类型</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

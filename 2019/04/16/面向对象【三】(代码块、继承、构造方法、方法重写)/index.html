@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="代码块 代码块概述 在Java中，使用{}括起来的代码被称为代码块。  代码块分类根据其位置和声明的不同，可以分为局部代码块，构造代码块，静态代码块，同步代码块(多线程讲解)。  常见代码块的应用： 1.局部代码块，在方法中出现；限定变量生命周期，及早释放，提高内存利用率 2.构造代码块，在类中方法外出现；在创建对象时执行，优先于构造方法执行，每创建一个对象都会执行 3.静态代码块，在类中方法外出">
+<meta name="keywords" content="JavaSE,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象【三】(代码块、继承、构造方法、方法重写)">
+<meta property="og:url" content="https://sombra002.github.io/2019/04/16/面向对象【三】(代码块、继承、构造方法、方法重写)/index.html">
+<meta property="og:site_name" content="赵泳智">
+<meta property="og:description" content="代码块 代码块概述 在Java中，使用{}括起来的代码被称为代码块。  代码块分类根据其位置和声明的不同，可以分为局部代码块，构造代码块，静态代码块，同步代码块(多线程讲解)。  常见代码块的应用： 1.局部代码块，在方法中出现；限定变量生命周期，及早释放，提高内存利用率 2.构造代码块，在类中方法外出现；在创建对象时执行，优先于构造方法执行，每创建一个对象都会执行 3.静态代码块，在类中方法外出">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-29T11:12:32.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象【三】(代码块、继承、构造方法、方法重写)">
+<meta name="twitter:description" content="代码块 代码块概述 在Java中，使用{}括起来的代码被称为代码块。  代码块分类根据其位置和声明的不同，可以分为局部代码块，构造代码块，静态代码块，同步代码块(多线程讲解)。  常见代码块的应用： 1.局部代码块，在方法中出现；限定变量生命周期，及早释放，提高内存利用率 2.构造代码块，在类中方法外出现；在创建对象时执行，优先于构造方法执行，每创建一个对象都会执行 3.静态代码块，在类中方法外出">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="赵泳智" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://sombra002.github.io/2019/04/16/面向对象【三】(代码块、继承、构造方法、方法重写)/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>面向对象【三】(代码块、继承、构造方法、方法重写) | 赵泳智</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">赵泳智</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">这个世界会好的！：）</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-guestbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/guestbook" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sombra002.github.io/2019/04/16/面向对象【三】(代码块、继承、构造方法、方法重写)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵泳智">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵泳智">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面向对象【三】(代码块、继承、构造方法、方法重写)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-16 18:25:28" itemprop="dateCreated datePublished" datetime="2019-04-16T18:25:28+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-29 19:12:32" itemprop="dateModified" datetime="2019-04-29T19:12:32+08:00">2019-04-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/16/面向对象【三】(代码块、继承、构造方法、方法重写)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/16/面向对象【三】(代码块、继承、构造方法、方法重写)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><ul>
+<li><p>代码块概述</p>
+<p>在Java中，使用{}括起来的代码被称为代码块。</p>
+</li>
+<li><p>代码块分类<br>根据其位置和声明的不同，可以分为局部代码块，构造代码块，静态代码块，同步代码块(多线程讲解)。</p>
+</li>
+<li><p>常见代码块的应用：</p>
+<p>1.局部代码块，在方法中出现；限定变量生命周期，及早释放，提高内存利用率</p>
+<p>2.构造代码块，在类中方法外出现；在创建对象时执行，优先于构造方法执行，每创建一个对象都会执行</p>
+<p>3.静态代码块，在类中方法外出现，加了static修饰，用于给类进行初始化，在加载的时候就执行，并且只执行一次。静态代码块里面只能访问静态变量</p>
+</li>
+</ul>
+<p>  看程序写结果，语句后面的数字为执行顺序</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Student &#123;</span><br><span class="line">	static &#123;</span><br><span class="line">		System.out.println(&quot;Student 静态代码块&quot;); //3</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Student 构造代码块&quot;); //4 6</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	public Student() &#123;</span><br><span class="line">		System.out.println(&quot;Student 构造方法&quot;); //5 7</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StudentDemo &#123;</span><br><span class="line">	static &#123;</span><br><span class="line">		System.out.println(&quot;StudentDemo的静态代码块&quot;);//1</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;我是main方法&quot;);//2</span><br><span class="line">			</span><br><span class="line">		Student s1 = new Student();</span><br><span class="line">		Student s2 = new Student();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><ul>
+<li><p>继承概述<br>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继承那个类即可。</p>
+</li>
+<li><p>继承格式</p>
+<ol>
+<li>通过<code>extends</code>关键字可以实现类与类的继承</li>
+<li><code>class 子类名 extends 父类名 {}</code></li>
+<li>单独的这个类称为父类，基类或者超类；这多个类可以称为子类或者派生类。</li>
+</ol>
+</li>
+</ul>
+<h2 id="继承的好处和弊端"><a href="#继承的好处和弊端" class="headerlink" title="继承的好处和弊端"></a>继承的好处和弊端</h2><p>​    案例：</p>
+<p>父类<code>Person</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">    String name;</span><br><span class="line">    int age;</span><br><span class="line"></span><br><span class="line">    public void eat() &#123;</span><br><span class="line">        System.out.println(&quot;吃饭&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void sleep() &#123;</span><br><span class="line">        System.out.println(&quot;睡觉&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类<code>Student</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Student extends Person&#123;</span><br><span class="line"></span><br><span class="line">    public void talkLove()&#123;</span><br><span class="line">        System.out.println(&quot;谈恋爱&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类<code>Teacher</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Teacher extends Person&#123;</span><br><span class="line"></span><br><span class="line">    public void teache()&#123;</span><br><span class="line">        System.out.println(&quot;教书&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上述代码可以看出:</p>
+<ul>
+<li>Student和Teacher类继承了Person类的成员变量和成员方法，因为Teacher和Student作为人都会具有年龄和姓名两个属性，而且具有吃饭和睡觉的功能.</li>
+<li>因为我们将这些子类所具有的相同功能都抽取到一个类中作为父类，所以Teacher和Student类不需要再写这些代码，只需要从父类那里继承就行，并且继承后可以在类中加入自己独特的功能代码，比如Teacher会教书，Student会谈恋爱。</li>
+<li>继承完成后我们就可以利用<code>Studnet</code>和<code>Teacher</code>来创建各自的对象</li>
+</ul>
+<p>测试类<code>MyTest</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Student student = new Student();</span><br><span class="line">        student.name=&quot;张三&quot;;      //调用了继承了父类的成员变量</span><br><span class="line">        student.age=19;</span><br><span class="line">        System.out.println(student.name+&quot;===&quot;+student.age);</span><br><span class="line">        student.sleep();          //调用了继承了父类的成员方法</span><br><span class="line">        student.eat();</span><br><span class="line">        student.talkLove();       //调用自己特有的方法</span><br><span class="line">        System.out.println(&quot;-----------------&quot;);</span><br><span class="line">        Teacher teacher = new Teacher();</span><br><span class="line">        teacher.name=&quot;沈某某&quot;;</span><br><span class="line">        teacher.age=10;</span><br><span class="line">        System.out.println(teacher.name+&quot;===&quot;+teacher.age);</span><br><span class="line">        teacher.sleep();</span><br><span class="line">        teacher.eat();</span><br><span class="line">        teacher.teache();</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承的好处："><a href="#继承的好处：" class="headerlink" title="继承的好处："></a>继承的好处：</h3><ol>
+<li>提高了代码的复用性</li>
+<li>提高了代码的维护性（比如要想修改<code>吃饭</code>为<code>吃米饭</code>便可直接在父类中进行修改，而不用在两个子类中分别修改，提升了代码的维护性）</li>
+<li>让类与类之间产生了关系，是多态的前提</li>
+</ol>
+<h3 id="继承的弊端："><a href="#继承的弊端：" class="headerlink" title="继承的弊端："></a>继承的弊端：</h3><p>类的耦合性增强了。（可能改变了父类中的一些成员，导致它的子类中的东西也会改变，这也是耦合的缺点）</p>
+<ul>
+<li>开发的原则：高内聚，低耦合。</li>
+<li>耦合：类与类的关系</li>
+<li>内聚：就是自己完成某件事情的能力</li>
+</ul>
+<h2 id="类的继承特点"><a href="#类的继承特点" class="headerlink" title="类的继承特点"></a>类的继承特点</h2><p>Java中类的继承特点：</p>
+<ul>
+<li>Java <strong>只支持单继承</strong>，<strong>不支持多继承</strong>，有些语言是支持多继承，格式：extends 类1,类2,…</li>
+<li>Java支持多层继承(继承体系)</li>
+<li>Object是所有类的顶层父类，所有类都是直接，或间接继承自他</li>
+</ul>
+<h2 id="继承的注意事项"><a href="#继承的注意事项" class="headerlink" title="继承的注意事项"></a>继承的注意事项</h2><ul>
+<li><p>继承的注意事项：</p>
+<p>子类只能继承父类所有非私有的成员(成员方法和成员变量)</p>
+<p>子类不能继承父类的构造方法，但是可以通过super(待会儿讲)关键字去访问父类构造方法。</p>
+<p>不要为了部分功能而去继承</p>
+</li>
+<li><p>什么时候使用继承：</p>
+<p>如果有两个类A,B。只有他们符合A是B的一种，或者B是A的一种，就可以考虑使用继承。</p>
+</li>
+</ul>
+<h2 id="继承中成员变量的关系"><a href="#继承中成员变量的关系" class="headerlink" title="继承中成员变量的关系"></a>继承中成员变量的关系</h2><ul>
+<li><p>在使用继承时可能会存在下面两种情况：</p>
+<p>1.子类中的成员变量和父类中的成员变量名称不一样</p>
+<p>2.子类中的成员变量和父类中的成员变量名称一样</p>
+</li>
+</ul>
+<ul>
+<li>上述问题如何解决？这就涉及到之前讲过的变量查找顺序遵循的就近原则，是对之前的就近原则的拓展</li>
+</ul>
+<p>在子类中访问一个变量的查找顺序(<strong>就近原则</strong>)：</p>
+<p>​        1.在子类的方法的局部范围找,有就使用</p>
+<p>​        2.在子类的成员范围找,有就使用</p>
+<p>​        3.在父类的成员范围找,有就使用</p>
+<p>​        4.如果还找不到,就报错</p>
+<p>代码示例：<br>执行下面的测试类（子类中的成员方法形参、成员变量以及父类的成员变量名一样）后，如果我想输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">200</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
+<p>程序中的成员方法应该如何定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        B b = new B();</span><br><span class="line">        int num=1;</span><br><span class="line">        b.show(num);</span><br><span class="line">        //变量的访问原则：遵循就近原则，先在局部找这个变量，找到就使用，如果局部没找到，去本类的成员位置找，找到就使用</span><br><span class="line">        //如果本类的成员位置没找到，去父类的成员位置找，找到就使用。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class A&#123;</span><br><span class="line">    int num=100;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A&#123;</span><br><span class="line">    int num=200;</span><br><span class="line">    public void show(int num)&#123;</span><br><span class="line">        //就近访问原则</span><br><span class="line">        System.out.println(num); </span><br><span class="line">        System.out.println(this.num);</span><br><span class="line">        //System.out.println(new A().num);  //涉及到匿名变量</span><br><span class="line">        System.out.println(super.num);      //引入super关键字</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="this和super的区别和应用"><a href="#this和super的区别和应用" class="headerlink" title="this和super的区别和应用"></a>this和super的区别和应用</h1><ul>
+<li><p><code>this</code>和<code>super</code>的区别：<br><code>this</code> 代表的是本类对象的引用，谁调用成员方法<code>this</code>就代表谁<br><code>super</code>代表的是父类存储空间的标识(可以理解成父类的引用,可以操作父类的成员)</p>
+</li>
+<li><p>this和super的使用：</p>
+<ul>
+<li><p>调用成员变量：<br>1.<code>this.成员变量</code> 调用本类的成员变量</p>
+<p>2.<code>super.成员变量</code> 调用父类的成员变量</p>
+</li>
+<li><p>调用构造方法：<br>1.<code>this(...)</code>    调用本类的构造方法</p>
+<p>2.<code>super(...)</code>    调用父类的构造方法</p>
+</li>
+<li><p>调用成员方法：<br>1.<code>this.成员方法</code> 调用本类的成员方法<br>2.<code>super.成员方法</code> 调用父类的成员方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        B b = new B();                      //this()   访问本类的空参构造</span><br><span class="line">        b.show(1);                          // super()  访问父类的空参构造</span><br><span class="line">        b.hehe();</span><br><span class="line">        System.out.println(&quot;------------&quot;);</span><br><span class="line">        b.test();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class A &#123;</span><br><span class="line">    int a = 200;</span><br><span class="line"></span><br><span class="line">    public void hehe() &#123;</span><br><span class="line">        System.out.println(&quot;这是父类的一个方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">    int a = 100;</span><br><span class="line"></span><br><span class="line">    public void show(int a) &#123;</span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(this.a);</span><br><span class="line">        System.out.println(super.a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void test2() &#123;</span><br><span class="line">        System.out.println(&quot;这是子类test2方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void test() &#123;</span><br><span class="line">        this.test2();</span><br><span class="line">        this.hehe();//本类对象调用父类的方法</span><br><span class="line">        super.hehe();//使用父类的空间标识去调用父类的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据上述讲解可知该代码演示最终的输出结果为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">100</span><br><span class="line">200</span><br><span class="line">这是父类的一个方法</span><br><span class="line">------------</span><br><span class="line">这是子类test2方法</span><br><span class="line">这是父类的一个方法</span><br><span class="line">这是父类的一个方法</span><br></pre></td></tr></table></figure>
+<h1 id="继承中构造方法的关系"><a href="#继承中构造方法的关系" class="headerlink" title="继承中构造方法的关系"></a>继承中构造方法的关系</h1><p>子类中所有的构造方法默认都会访问父类中空参数的构造方法（来实现对父类的初始化）</p>
+<p>原因：因为子类会继承父类中的数据，可能还会使用父类的数据，所以，子类初始化之前，一定要先完成父类数据的初始化。</p>
+<p>其实：<br>每一个构造方法的第一条语句默认都是：super()，只要在写构造方法时系统就会默认在第一条语句之前写上这条语句，但是不会显示，所以我们可以写也可以不写，不会影响对父类构造的初始化，注意Object没有父类。</p>
+<p>代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Son son = new Son(10);</span><br><span class="line">        System.out.println(son.b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Father&#123;</span><br><span class="line">    int num=1000;</span><br><span class="line">    public Father() &#123;</span><br><span class="line">        super();</span><br><span class="line">        System.out.println(&quot;这是父类的空参构造&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Son extends Father&#123;</span><br><span class="line">    int b=1;</span><br><span class="line">    public Son() &#123;</span><br><span class="line">        super();</span><br><span class="line">        System.out.println(&quot;这是子类的空参&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Son(int b) &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.b = b;</span><br><span class="line">        System.out.println(&quot;子类有参构造执行了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按照上述讲解可知上述代码最终输出结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是父类的空参构造</span><br><span class="line">子类有参构造执行了</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<h1 id="继承中构造方法的案例演示及注意事项"><a href="#继承中构造方法的案例演示及注意事项" class="headerlink" title="继承中构造方法的案例演示及注意事项"></a>继承中构造方法的案例演示及注意事项</h1><ul>
+<li><p>父类没有无参构造方法,子类怎么办?</p>
+<p>在父类中添加一个无参的构造方法</p>
+<p>子类通过super去显示调用父类其他的带参的构造方法</p>
+<p>子类通过this去调用本类的其他构造方法，本类其他构造也必须首先访问了父类构造</p>
+</li>
+<li><p>注意事项：<br><code>super(…)</code>或者<code>this(…)</code>必须出现在第一条语句上，要在执行构造方法中的业务逻辑之前完成对父类构造方法的调用或者对本类其他构造方法的调用</p>
+</li>
+</ul>
+<p>代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ////假如我父类里面没有提供空参构造怎么办？</span><br><span class="line">        ////1.那子类可以去调父类有参构造</span><br><span class="line">        ////2.先用this(参数)本类的有参构造，然后你调用的那个构造又去调用父类的有参构造</span><br><span class="line">        //System.out.println(zi.num);</span><br><span class="line">        Zi zi = new Zi();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Fu&#123;</span><br><span class="line">    int num=10;</span><br><span class="line"></span><br><span class="line">    public Fu(int num) &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.num = num;</span><br><span class="line">        System.out.println(&quot;父类的有参构造执行了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi extends Fu&#123;</span><br><span class="line">    int num=100;</span><br><span class="line">    public Zi() &#123;</span><br><span class="line">        super(10);</span><br><span class="line">       // this(10000);</span><br><span class="line">        System.out.println(&quot;子类的空参构造执行了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Zi(int num) &#123;</span><br><span class="line">        super(num);</span><br><span class="line">        System.out.println(&quot;子类的有参构造执行了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据上述知识点讲解可知上述代码最终输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">父类的有参构造执行了</span><br><span class="line">子类的空参构造执行了</span><br></pre></td></tr></table></figure>
+<h1 id="继承中的面试题"><a href="#继承中的面试题" class="headerlink" title="继承中的面试题"></a>继承中的面试题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">A:案例演示</span><br><span class="line">	看程序写结果1</span><br><span class="line">	class Fu&#123;</span><br><span class="line">		public int num = 10;</span><br><span class="line">		public Fu()&#123;</span><br><span class="line">			System.out.println(&quot;fu&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	class Zi extends Fu&#123;</span><br><span class="line">		public int num = 20;</span><br><span class="line">		public Zi()&#123;</span><br><span class="line">			System.out.println(&quot;zi&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		public void show()&#123;</span><br><span class="line">			int num = 30;</span><br><span class="line">			System.out.println(num);//30</span><br><span class="line">			System.out.println(this.num);//20</span><br><span class="line">			System.out.println(super.num);//10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	class Test &#123;</span><br><span class="line">		public static void main(String[] args) &#123;</span><br><span class="line">			Zi z = new Zi();</span><br><span class="line">			z.show();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">B:案例演示</span><br><span class="line">	看程序写结果2</span><br><span class="line">	class Fu &#123;</span><br><span class="line">		static &#123;</span><br><span class="line">			System.out.println(&quot;静态代码块Fu&quot;); //1</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;构造代码块Fu&quot;); //3</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		public Fu() &#123;</span><br><span class="line">			System.out.println(&quot;构造方法Fu&quot;); //4</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	class Zi extends Fu &#123;</span><br><span class="line">		static &#123;</span><br><span class="line">			System.out.println(&quot;静态代码块Zi&quot;); //2</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;构造代码块Zi&quot;); //5</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		public Zi() &#123;</span><br><span class="line">			System.out.println(&quot;构造方法Zi&quot;); //6</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Zi z = new Zi(); 请执行结果。</span><br></pre></td></tr></table></figure>
+<p>A案例的输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fu</span><br><span class="line">zi</span><br><span class="line">30</span><br><span class="line">20</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>B案例的输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">静态代码块Fu</span><br><span class="line">静态代码块Zi</span><br><span class="line">构造代码块Fu</span><br><span class="line">构造方法Fu</span><br><span class="line">构造代码块Zi</span><br><span class="line">构造方法Zi</span><br></pre></td></tr></table></figure>
+<h1 id="继承中成员方法关系"><a href="#继承中成员方法关系" class="headerlink" title="继承中成员方法关系"></a>继承中成员方法关系</h1><p>在使用继承时可能会出现下面两种情况：</p>
+<ul>
+<li>当子类的方法名和父类的方法名不一样的时候</li>
+<li>当子类的方法名和父类的方法名一样的时候</li>
+</ul>
+<p>通过子类调用方法的查找顺序:</p>
+<ol>
+<li>先查找子类中有没有该方法,如果有就使用</li>
+<li>再看父类中有没有该方法,有就使用</li>
+<li>如果没有就报错</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">     public static void main(String[] args) &#123;</span><br><span class="line">        Zi zi = new Zi();</span><br><span class="line">        zi.show();</span><br><span class="line">        zi.test();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Fu &#123;</span><br><span class="line">    int num2=100;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(&quot;我是父类的show方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Zi extends Fu&#123;</span><br><span class="line">    int num=200;</span><br><span class="line"></span><br><span class="line">    public void test()&#123;</span><br><span class="line">        System.out.println(&quot;我是子类的test方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void show() &#123;</span><br><span class="line">        System.out.println(&quot;我是子类的show方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><ul>
+<li><p>什么是方法重写：</p>
+<p>子类中出现了和父类中一模一样的方法声明(方法名,参数列表,返回值类型)，也被称为方法覆盖，方法复写。</p>
+</li>
+<li><p>方法重写的应用：</p>
+<p>如果说子类对父类的方法实现不满意，那么子类就可以覆盖他，或者说，子类想要对父类的方法的实现功能进行扩展，也可以使用方法重写的这种机制</p>
+</li>
+</ul>
+<h1 id="方法重写的注意事项"><a href="#方法重写的注意事项" class="headerlink" title="方法重写的注意事项"></a>方法重写的注意事项</h1><ul>
+<li><p>方法重写注意事项：</p>
+<p>1.父类中私有方法不能被重写，因为父类私有方法子类根本就无法继承<br>2.子类重写父类方法时，访问权限不能更低，最好就一致<br>3.父类静态方法，子类也必须通过静态方法进行重写 其实这个算不上方法重写，但是现象确实如此</p>
+<p>4.子类重写父类方法的时候，最好声明一模一样。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="赵泳智 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="赵泳智 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaSE/" rel="tag"><i class="fa fa-tag"></i> JavaSE</a>
+          
+            <a href="/tags/面向对象/" rel="tag"><i class="fa fa-tag"></i> 面向对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/14/面向对象【二】(this关键字、构造方法、static关键字、静态变量和成员变量的区别、Math类的随机数功能)/" rel="next" title="面向对象【二】(this关键字、构造方法、static关键字、静态变量和成员变量的区别、Math类的随机数功能)">
+                <i class="fa fa-chevron-left"></i> 面向对象【二】(this关键字、构造方法、static关键字、静态变量和成员变量的区别、Math类的随机数功能)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/面向对象【四】（final关键字、多态）/" rel="prev" title="面向对象【四】（final关键字、多态）">
+                面向对象【四】（final关键字、多态） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="赵泳智">
+            
+              <p class="site-author-name" itemprop="name">赵泳智</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/zyzzzz1996@163.com" title="E-Mail &rarr; zyzzzz1996@163.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/u/3194255770" title="Weibo &rarr; https://weibo.com/u/3194255770" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/zyzkikiki" title="Twitter &rarr; https://twitter.com/zyzkikiki" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.youtube.com/channel/UCy73PKG-yFk0x7hhOSUaabQ" title="YouTube &rarr; https://www.youtube.com/channel/UCy73PKG-yFk0x7hhOSUaabQ" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.instagram.com/zyzzzz1996/" title="Instagram &rarr; https://www.instagram.com/zyzzzz1996/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/weixin_43875013" title="https://blog.csdn.net/weixin_43875013" rel="noopener" target="_blank">赵泳智的CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.baidu.com/" title="https://www.baidu.com/" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1333199831&auto=1&height=66"></iframe>
+
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码块"><span class="nav-number">1.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的好处和弊端"><span class="nav-number">2.1.</span> <span class="nav-text">继承的好处和弊端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的好处："><span class="nav-number">2.1.1.</span> <span class="nav-text">继承的好处：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的弊端："><span class="nav-number">2.1.2.</span> <span class="nav-text">继承的弊端：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的继承特点"><span class="nav-number">2.2.</span> <span class="nav-text">类的继承特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的注意事项"><span class="nav-number">2.3.</span> <span class="nav-text">继承的注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承中成员变量的关系"><span class="nav-number">2.4.</span> <span class="nav-text">继承中成员变量的关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this和super的区别和应用"><span class="nav-number">3.</span> <span class="nav-text">this和super的区别和应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承中构造方法的关系"><span class="nav-number">4.</span> <span class="nav-text">继承中构造方法的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承中构造方法的案例演示及注意事项"><span class="nav-number">5.</span> <span class="nav-text">继承中构造方法的案例演示及注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承中的面试题"><span class="nav-number">6.</span> <span class="nav-text">继承中的面试题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承中成员方法关系"><span class="nav-number">7.</span> <span class="nav-text">继承中成员方法关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法重写"><span class="nav-number">8.</span> <span class="nav-text">方法重写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法重写的注意事项"><span class="nav-number">9.</span> <span class="nav-text">方法重写的注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵泳智</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'a39CHkFe11nhCTyQgXnJPGFm-gzGzoHsz',
+    appKey: 'fcrzPYkILWHRL4LHA3sdNLMW',
+    placeholder: '欢迎来这里留言。',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/src/fireworks.js"></script>      
+    
+
+    
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
