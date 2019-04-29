@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[装系统找我！]]></title>
-    <url>%2F2019%2F04%2F27%2Fa%2F</url>
+    <title><![CDATA[键盘录入数据、流程控制语句]]></title>
+    <url>%2F2019%2F04%2F29%2F%E9%94%AE%E7%9B%98%E5%BD%95%E5%85%A5%E6%95%B0%E6%8D%AE%E3%80%81%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5%2F</url>
     <content type="text"></content>
       <categories>
-        <category>(博客目录)elasticsearch系列文章</category>
+        <category>JavaSE</category>
       </categories>
-      <tags>
-        <tag>（博客分类标签）java, elasticsearch</tag>
-      </tags>
   </entry>
   <entry>
-    <title><![CDATA[欢迎访问！]]></title>
-    <url>%2F2019%2F04%2F12%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[首页Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[进制、常量、变量、数据类型、运算符]]></title>
+    <url>%2F2019%2F04%2F02%2F%E8%BF%9B%E5%88%B6%E3%80%81%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[进制二进制：由0、1组成，逢二进一，以0b开头， 八进制：由0~7组成，逢八进一，以0开头 十进制：由0~9组成，逢十进一，默认是十进制 十六进制：由0-9,A-F组成，逢十六进一，以0X开头 案例：输出不同进制表现10的数据二进制：0b10八进制：010十进制：10十六进制：0x10 任意进制到十进制的转换规则：系数*基数^权数次幂相加 1二进制转换为十进制：0b101----&gt; 1*2^0+0*2^1+1*2^2=5 其他进制转换到十进制以此类推 十进制到任意进制的转换规则：除基取余 直到商为0 余数反转 十进制转换为二进制： 5/2商2余1 2/2商1余0 1/2商0余1 余数反转（自下而上）的二进制为:0b101 原码 反码 补码原码：即二进制定点表示法 反码：正数的反码与其原码相同；负数的反码是除符号位外对其逐位取反 补码：正数的补码与其原码相同；负数的补码是在其反码的末位加1 案例： ​ 原码：1001011 ​ 反码：1110100（除符号位外对位取反） ​ 补码：1110101（反码加1） 变量 什么是变量：在程序执行的过程中，在某个范围内其值可以发生改变的量，定义一个变量，其实就是开辟了一个内存空间 定义格式：数据类型 变量名 = 变量值 数据类型Java中数据类型的分类： 基本数据类型整数型12345类型 字节数 范围byte 1(8bit) -128 ~ 127short 2(16bit) -2^15 ~ 2^15 - 1int 4(32bit) -2^31 ~ 2^31 - 1long 8(64bit) -2^63 ~ 2^63 - 1 浮点型123类型 字节数 范围float 4(32bit) -3.403*10^38 ~ 3.403*10^38double 8(64bit) -1.798*10^308 ~1.798*10^308 字符型12类型 字节数 范围char 2(16bit) 0 ~ 2^16 - 1 = 65535 布尔型12类型 字节数 boolean 1 整数默认是int类型的 ， 浮点数默认是 double类型的 引用数据类型如数组，接口，类等 注意： ​ 未初始化的变量不能使用​ 同一作用域内不能有两个同名变量​ 同一行可定义多个变量，但不建议 java数据类型的自动类型提升与强制转换自动类型提升byte short char 在参与数学运算时，会自动提升为int类型，如果还有long ,float double 参与运算则会相应的提升为 long float double ,布尔类型不参与数学运算，byte short char 之间不发生转换 12345byte a=10;short b=20;byte num=a+b; //报错,在运算时会转换为int类型，byte类型的num装不下int类型的数据a=a+1;//报错，1为int类型 强制类型转换强制将一个数据，转换成我们要的数据类型，强制类型转换，有可能会发生精度损失的问题 格式：目标数据类型 变量名=(目标数据类型)(被转换的数据); 1234byte a = 1;byte b = 127;short c =(short) a+b;//运算时虽然自动转换为int类型，但强制转换为short，且128在short数据类型范围内，此处不会发生精度损失byte c = (byte)128;//输出-128 案例 12345byte a=10;byte b=20;byte r=a+1; //报错，int转为byte可能发生精度损失byte rr=3+4; //不会报错 常量优化机制，多个常量相加时，他会先算出结果，看没有在这个数据类型的范围内，如果在，就不报错,如果不在就会报错char ch=&apos;爱&apos;; //char 占两个字节，gbk编码一个汉字占两个字节 ANSI 也是一个汉字占两个字节，UTF8 一个汉字占三个字节的 字符和字符串参与运算ASCII码表中: ‘a’97 ‘A’ 65 ‘0’ 48 123char ch = &apos;a&apos;;char ch2 = ch+1;//报错，从int转换到char可能会有精度损失int r = ch+1;//不报错，输出98 当+号运算两端只要任意一端是一个字符串，那么加号就起连接符的作用，就会将两端的内容拼接起来，形成一个新的字符串 1234567System.out.println(&quot;Hello World!&quot;+100); //&quot;Hello World!100&quot;System.out.println(&quot;Hello World!&quot;+100+86);//&quot;Hello World!10086&quot;System.out.println(&quot;Hello World!&quot;+&quot;10086&quot;);// &quot;Hello World!10086&quot; System.out.println(10086+&quot;Hello World!&quot;);//&quot;10086Hello World!&quot;System.out.println(100+&quot;Hello World!&quot;+100+86);//100Hello World!10086System.out.println(100+86+&quot;Hello World!&quot;+100+86); //186HelloWorld!10086System.out.println(&quot;5+5=&quot;+5+5);//&quot;5+5=55&quot;System.out.println(5+5+&quot;=5+5&quot;);//&quot;10=5+5&quot; 运算符 什么是运算符:对常量和变量进行操作的符号称为运算符 运算符的分类: 123456算术运算符 赋值运算符比较运算符逻辑运算符位运算符三目运算符 注意事项： a:整数相除只能得到整数。如果想得到小数，请使用浮点数 b:/获取的是除法操作的商，%获取的是除法操作的余数 %运算结果的符号，取决于参与运算是左边的符号。 算数运算符 算数运算符有哪些:+ , - , * , / , % , ++ , – /：整数相除只能得到整数，要得到小数需使用服浮点数 ++:自加,对原有的数据进行+1–:自减,对原有的数据进行-1 ++,–运算符单独使用：放在操作数的前面和后面效果一样 ++,–参与运算时使用：放在操作数的前面，先自增或者自减，然后再参与运算 放在操作数的后面，先参与运算，再自增或者自减 案例 1234567int a = 3;a++;//此处a=4++a;//此处a=5a--;//a=4--a;//a=3int num = a++; //num=3 a=4int num2 = ++a; //num2=5 a=5 赋值运算符赋值运算符有哪些：=， +=,-=,*=,/=,%= 案例： 123byte b =3;b = b+1; //报错b+=1; //不报错，会自动强制类型转换，然后判断累加完的结果，在不在这个数据类型的范围内，如果不在会自动强制类型转换 比较运算符关系运算符有哪些：== ,!= , &lt; , &gt; , &lt;= , &gt;= 关系运算符运算结果是booean型 逻辑运算符逻辑运算符有哪些：&amp;(并且) , |(或者) , !(非) , ^(异或) , &amp;&amp;(短路与) , ||(短路或) 逻辑运算符运算结果是booean型 &amp;(并且) , |(或者) 和 &amp;&amp;(短路与) ,||(短路或) 在运算结果上没有区别，区别在运算效率上：&amp;，运算符两端都会计算，而&amp;&amp;，||只要左端能得出计算结果，则不会执行右端 案例： 1234int a = 1;int b = 2;boolean flag = a==2 &amp;&amp; (a&gt;b);//&amp;&amp;左端已经为false，则右端不会再进行判断System.out.println() 三元运算符语法：布尔表达式?结果1:结果2 案例：求两个数最大值 123int a = 1;int b = 2;int max = a&gt;b?a:b; 位运算符位运算符有哪些： ​ &amp;(与)，|(或)，^(异或) , ~(按位取反) , &lt;&lt;(左移) ,&gt;&gt;(右移) ,&gt;&gt;&gt;(无符号右移) &amp;:有0则0|:有1则1^:相同则0，不同则1~:按位取反 0变1 1变0 &lt;&lt; : 把&lt;&lt;左边的数据乘以2的移动次幂 例如 10&lt;&lt;3 结果 10*2^3=80 12345int flag = 1&amp;2; //0int flag = 1|2; //3int flag = ~3; //-4int num = 3&gt;&gt;2; //3/2^2=0int num = 3&lt;&lt;2; //3*2^2=12]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Java简介、注释、、常见DOS命令]]></title>
+    <url>%2F2019%2F04%2F01%2FJava%E7%AE%80%E4%BB%8B%E3%80%81%E6%B3%A8%E9%87%8A%E3%80%81%E3%80%81%E5%B8%B8%E8%A7%81DOS%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[一、DOS常用命令 DOS命令 功能 cd + 目录名 进入该目录 cd… 回退上一级目录 cd…/…/ 回退上两级目录 cd /盘符 + 完整路径名 跨盘操作 md + 目录名 新建一个目录 rd + 目录名 删除一个空目录 rd /s + 目录名 删除非空目录，删除前会确认是否删除 rd /s /q + 目录名 删除非空目录，直接删除 del + 文件名.后缀名 删除该文件 del + *.后缀名 删除该目录下所有该后缀名的文件 mspaint 打开画图 calc 打开计算器 cls 清屏 exit 退出 hsotname 查看主机名 ipconfig 查看IP地址 shutdow -s -t 0 在0秒后关机 二、JDK JRE JVMJDK：java开发工具包，提供给开发人员编写java程序JRE：java运行环境，源代码由JRE运行JVM：java虚拟机，实现跨平台注：JDK包含JRE，使用JDK开发java程序，交给JRE运行，由JVM实现跨平台 三、Java的三种注释//单行注释 /多行注释 / /*文档注释 / 四、标识符给类，变量等起的名字不能以数字开头可使用的符号：_ $见名知意给类命名首字母大写，多个字母采用驼峰式命名，如StudentName 五、常量定义：在程序中值不会发生的量称作常量，分为字面值常量和自定义常量字面值常量： 整数常量（1 2 3…）小数常量（1.1 …）字符常量（‘a’ ‘A’ ‘1’…）注：单引号括起来的一个字符字符串常量（“String” “1” “A”）注：用双引号括起来的一个或多个字符布尔常量（true false） 空常量（null） 六、关键字的概述和使用A:什么是关键字 就是被java语言赋予特殊含义的单词。B:关键字的特点 组成关键的字母都是小写C:常见关键字 class,public,static,void …..D:关键字的注意事项 (1): goto和const是java语言的保留字 (2): 类似与editplus这样的高级文本编辑器对关键字都是有颜色变化的 七、标识符的概述和组成规则“见名知意”A:什么是标识符 就是给类,接口,方法,变量,常量等起名字时使用的字符序列B:标识符的组成规则 (1): 英文的大小写字母 (2): 数字字符 (3): $和_C:标识符注意事项 (1): 不能以数字开头 (2): 不能是java中的关键字 (3): 区分大小写]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[欢迎访问我的博客！]]></title>
+    <url>%2F2019%2F03%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[技术博客、人生感悟、随便写写。 大家笑一笑就好！]]></content>
   </entry>
 </search>
