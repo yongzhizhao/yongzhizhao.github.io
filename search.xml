@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[My Heart Will Go On]]></title>
+    <url>%2F2019%2F06%2F30%2F%E8%AF%B4%E5%AE%9E%E8%AF%9D%EF%BC%8C%E8%BF%99%E4%B8%AA%E4%B8%96%E7%95%8C%E8%AE%A9%E6%88%91%E6%9C%89%E7%82%B9%E5%A4%B1%E6%9C%9B%2F</url>
+    <content type="text"><![CDATA[​ 今天是2019年6月的最后一天，我坐在西安泊寓软件园店的地下活动室写下这篇文章~ ​ 之前一直处于阴雨天，今天，迎来了久违的太阳。 ​ 我顺利毕业了，为了那两张无用的证书，付出的不止是汗水，还有金钱…我真的对我的本科专业无感，而我又想从事我热爱的事业~所以我断了自己的退路。 ​ 昨晚送别了阿福的homie们，以后再跟他们一起喝酒蹦迪就不知是什么时候了，想来是有些心酸 ，不过我又有了一群新的迪友，都是我的同事。蹦迪也是我热爱的事业之一，很多人对蹦迪有误解，认为去夜店的都不是好孩子。我觉得蹦迪也算是一个爱好，就跟别人爱打篮球一样，我昨晚还在夜店碰到一个在西安交大读研的朋友呢，所以说，蹦迪≠不良青年。还有纹身！纹在身上的是信仰！人若是没有信仰，如同行尸走肉。 ​ 曾经还是学生的我，憧憬着大千世界，心中还残留着对这个世界美好的向往。如今我也上了一个多月班了，发现这个世界并不是我想象中的那样。真的好复杂。最复杂的还是人心。我一直有一种错觉，我错以为别人都能像我一样热爱这个世界，后来才发现，他们的眼中只有利益和欲望。 ​ 走出象牙塔，除了失望还有生存压力，房价真的他妈的太贵了，我不吃不喝一个月半平米都买不起，我还要租房，吃饭，社交等等。我希望把房价炒起来的那群人不得house。还有食品安全问题，我公寓下面那几家饭店卫生令人堪忧，厨师抠脚，另一家吃出虫子。生而为“人”，我劝你们当个人。 ​ 可我偏偏是个舔狗，就算这个世界带给我的是失望，而我却还心存期望。永远保持热泪盈眶。 ​ 再来说说工作，虽说和编程沾点边，可是根本学不到东西。我想自己再学学技术，然后跳槽。感觉我们小组的办公室政治有些严重，我们都不喜欢小组长，可能是因为她整天压榨我们的下班时间吧，总是想让我们加个班，给那么点工资还让加班，我们凭什么不能用这些时间去学点知识，找个高薪工作呢？ ​ 负能量好像有点多，我也不想啊！ ​ 再喝点鸡汤吧~ ​ 全力以赴，遇见更优秀的自己。]]></content>
+      <categories>
+        <category>人生感悟</category>
+      </categories>
+      <tags>
+        <tag>人生随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[二分法查找元素]]></title>
     <url>%2F2019%2F04%2F30%2F%E4%BA%8C%E5%88%86%E6%B3%95%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879/** * 二分查找的前提: 数组元素必须有序. * 如果数组元素无序,那么请使用基本查找 */public class BinarySearchDemo &#123; public static void main(String[] args) &#123; // 定义一个数组 int[] arr = &#123;13, 24, 57, 69, 80&#125; ; // 调用方法 int index = binarySearch(arr , 80) ; // 输出 System.out.println(&quot;index: &quot; + index); &#125; /** * 二分查找 */ private static int binarySearch2(int[] arr, int value) &#123; // 定义两个int类型的变量 int minIndex = 0 ; int maxIndex = arr.length - 1 ; while(minIndex &lt;= maxIndex)&#123; // 计算出中间索引 int midIndex = (minIndex + maxIndex) &gt;&gt;&gt; 1 ; // 比较 if(arr[midIndex] == value)&#123; return midIndex ; &#125;else if(arr[midIndex] &gt; value)&#123; maxIndex = midIndex - 1 ; &#125;else if(arr[midIndex] &lt; value)&#123; minIndex = midIndex + 1 ; &#125; &#125; return -1; &#125; /** * 二分查找 */ private static int binarySearch(int[] arr, int value) &#123; // 定义两个int类型的变量 int minIndex = 0 ; int maxIndex = arr.length - 1 ; // 计算出中间索引 int midIndex = (minIndex + maxIndex) / 2 ; while(minIndex &lt;= maxIndex)&#123; // 比较 if(arr[midIndex] == value)&#123; return midIndex ; &#125;else if(arr[midIndex] &gt; value)&#123; maxIndex = midIndex - 1 ; &#125;else if(arr[midIndex] &lt; value)&#123; minIndex = midIndex + 1 ; &#125; midIndex = (minIndex + maxIndex) / 2 ; &#125; return -1; &#125;&#125;]]></content>
